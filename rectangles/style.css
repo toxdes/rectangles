@@ -24,7 +24,7 @@ h1 {
 }
 
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .top {
@@ -68,13 +68,13 @@ strong {
 .green:hover {
   background-color: #a3ff00;
   color: #222222;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .blue:hover {
   background-color: #18ffff;
   color: #222222;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .modal {

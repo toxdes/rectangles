@@ -5,6 +5,7 @@ var currentBlock;
 var score = 0;
 var lives = 3;
 var modalIsOpen = false;
+var gameOver = true;
 //p5 setup
 function setup() {
   var canvas = createCanvas(850, 550);
@@ -21,6 +22,8 @@ function draw() {
   });
   if (lives === 0) {
     alert(`Game over! Your score : ${score}. Don't let it stop you! `);
+    lives = 3;
+    resetButtonClicked();
   }
 }
 
@@ -77,4 +80,57 @@ function modalOkayClicked() {
 //helper functions
 var rand = function(end) {
   return Math.floor(Math.random() * end);
+};
+
+var linesIntersect = function(x1, y1, x2, y2, x3, y3, x4, y4) {
+  // calculate the distance to intersection point
+  let uA =
+    ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) /
+    ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+  let uB =
+    ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) /
+    ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+  // if uA and uB are between 0-1, lines are colliding
+  if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) {
+    // optionally, draw a circle where the lines meet
+    let intersectionX = x1 + uA * (x2 - x1);
+    let intersectionY = y1 + uA * (y2 - y1);
+    fill(255, 0, 0);
+    noStroke();
+    ellipse(intersectionX, intersectionY, 20, 20);
+    return true;
+  }
+  return false;
+};
+
+//the only thing you figure out in the morning
+var checkIntersection = function(b1, b2) {
+  let ans = [];
+  ans.push(
+    linesIntersect(b1.x, b1.y, b1.x + b1.w, y2, b2.x, b2.y, b2.x, b2.y + b2.h)
+  );
+  ans.push(
+    linesIntersect(b1.x, b1.y, b1.x, y2 + b1.h, b2.x, b2.y, b2.x, b2.y + b2.h)
+  );
+  ans.push(
+    linesIntersect(
+      b1.x + b1.w,
+      b1.y,
+      b1.x + b1.w,
+      y2,
+      b2.x,
+      b2.y,
+      b2.x,
+      b2.y + b2.h
+    )
+  );
+  ans.push(
+    linesIntersect(b1.x, b1.y, b1.x + b1.w, y2, b2.x, b2.y, b2.x, b2.y + b2.h)
+  );
+  ans.push(
+    linesIntersect(b1.x, b1.y, b1.x + b1.w, y2, b2.x, b2.y, b2.x, b2.y + b2.h)
+  );
+  ans.push(
+    linesIntersect(b1.x, b1.y, b1.x + b1.w, y2, b2.x, b2.y, b2.x, b2.y + b2.h)
+  );
 };

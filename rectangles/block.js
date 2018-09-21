@@ -17,6 +17,12 @@ class Block {
 
     this.place = () => {
       this.isPlaced = true;
+      //checks for any intersections
+      blocks.forEach(block => {
+        if (checkIntersection(this, block)) {
+          gameOver = true;
+        }
+      });
     };
 
     this.draw = () => {
