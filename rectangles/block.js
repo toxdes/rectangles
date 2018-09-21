@@ -13,7 +13,7 @@ class Block {
       blue: rand(255)
     };
 
-    let wt = rand((this.l + this.w) % 5);
+    let wt = 3; //rand((this.l + this.w) % 5);
 
     this.place = () => {
       this.isPlaced = true;

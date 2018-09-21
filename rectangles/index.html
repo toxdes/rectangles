@@ -16,10 +16,31 @@
 <body>
   <div class="top">
     <h1>Rectangles</h1>
-    <button id="resetButton" onClick="resetButtonClicked()">Reset</button>
+    <button id="resetButton" class="button green" onClick="resetButtonClicked()">Reset</button>
+    <button id="infoButton" class="button blue" onClick="infoButtonClicked()">What is this?</button>
   </div>
   <div id="sketchContainer"></div>
 
+  <div id="modal" class="modal">
+    <div class="modalContent">
+      <h2>Rectangles</h2>
+      <div class="exactContent">
+        <p><strong class="tick">✔</strong> Alright, listen up! </p>
+        <p><strong class="tick">✔</strong> This is a game, and to play it, you just click on the play area to get a
+          rectangle of
+          random size. You place
+          it in such a way that it doesn't cross another rectangle's length / width. </p>
+        <p><strong class="tick">✔</strong> If the rectangle crosses another rectangle, <strong>Game Over!</strong></p>
+        <p><strong class="tick">✔</strong> You get a point for every rectangle you place.</p>
+        <p><strong class="tick">✔</strong> Don't worry, you get 3 lives every time you start a new game. So, if you
+          think you can't
+          fit the rectangle,
+          just press
+          <strong>Esc </strong> on your keyboard. </p>
+      </div>
+      <button class="button blue primary" onClick="modalOkayClicked();">Okay!</button>
+    </div>
+  </div>
 </body>
 
 </html>
