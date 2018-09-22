@@ -15,19 +15,7 @@
 </head>
 
 <body>
-  <div class="top">
-    <h1>Rectangles</h1>
-    <button id="resetButton" class="button green" onClick="resetButtonClicked()">Reset</button>
-    <button id="infoButton" class="button blue" onClick="infoButtonClicked()">What is this?</button>
-  </div>
-  <div id="sketchContainer"></div>
 
-  <div class="top">
-    <h2 style="color:white">Score : </h2>
-    <h2><strong id="mainScore">0</strong></h2>
-    <h2 style="color:white;margin-left:auto; margin-right:10px"> Lives : </h2>
-    <h2><strong id="lives">3</strong></h2>
-  </div>
   <div id="help" class="modal">
     <div class="modalContent">
       <h2>Rectangles</h2>
@@ -51,12 +39,66 @@
   <div id="gameOver" class="modal">
     <div class="modalContent">
       <h2>Game over!</h2>
-      <p style="font-size:22px"> Your score : <strong id="score" class="tick"></strong>
-      </p>
-      <p> Don't let it stop you! </p>
+      <div class="gameOverContent">
+        <img src="./sadbear.gif" width="200" height="150">
+        <div class="vertic">
+          <p style="font-size:22px" class="tick">You scored <strong id="score" class="tick"> </strong>!
+          </p>
+          <p>It was good, but ...Come on man! Is this all you can do? Even random clicks get better score than this.
+            Try one more time, and this time, don't screw up. </p>
+        </div>
+      </div>
       <button class="button blue primary" onClick="modalOkayClicked('gameOver');">Play Again!</button>
     </div>
   </div>
+  <div class="top">
+    <h1>Rectangles</h1>
+    <button id="resetButton" class="button green" onClick="resetButtonClicked()">Reset</button>
+    <button id="infoButton" class="button blue" onClick="infoButtonClicked()">What is this?</button>
+  </div>
+  <div id="sketchContainer"></div>
+
+
+  <div class="top">
+    <h2 style="color:white">Score : </h2>
+    <h2><strong id="mainScore">0</strong></h2>
+    <h2 style="color:white;margin-left:auto; margin-right:10px"> Lives : </h2>
+    <h2><strong id="lives">3</strong></h2>
+  </div>
+  <div class="left">
+    <h2>Coming Soon</h2>
+    <div class="leftContent">
+      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> No animations yet.
+      </p>
+      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> Better looking
+        scores and lives,
+        maybe
+        add images, or
+        inside canvas. Add dark
+        overlay for background whenever modal opens. </p>
+      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> Firebase to store
+        scores and
+        creating
+        accounts for
+        players</p>
+      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> Store the scores,
+        and have a
+        leaderboard</p>
+      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong>Haven't checked all
+        the edge cases
+        yet,
+        so god fucking
+        damnit.</p>
+      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> Pointer events,
+        need
+        to figure out
+        how
+        the fuck do I get
+        this to work on
+        phone.
+        Most difficult part, makes sense to run away from this as far as I can. </p>
+
+    </div>
 </body>
 
 </html>

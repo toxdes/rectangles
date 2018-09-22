@@ -78,11 +78,13 @@ strong {
 }
 
 .modal {
-  z-index: -1;
+  z-index: 2;
   position: absolute;
-  width: 70%;
-  height: 70%;
-  background-color: white;
+  top: 120px;
+
+  width: 720px;
+  height: 480px;
+  background-color: #f4f4f5;
   display: none;
 }
 
@@ -113,8 +115,8 @@ strong {
   margin-right: 5px;
 }
 .show {
-  z-index: 2;
-  display: block;
+  z-index: 4;
+  display: inline-block;
 }
 
 #lives {
@@ -123,4 +125,50 @@ strong {
 
 #mainScore {
   color: #18ffff;
+}
+
+.left {
+  padding-top: 50px;
+  display: inline-block;
+  flex-direction: column;
+}
+
+.left h2 {
+  color: white;
+  font-weight: 500;
+}
+.leftContent {
+  width: 800px;
+  height: 500px;
+}
+
+.leftContent p {
+  color: white;
+  text-align: left;
+  line-height: 30px;
+  font-weight: 200;
+}
+
+.gameOverContent {
+  display: flex;
+  flex-direction: row;
+}
+
+.gameOverContent img {
+  width: 300px;
+  overflow: hidden;
+  height: 230px;
+}
+.gameOverContent .vertic p {
+  line-height: 30px;
+  padding: -10px;
+}
+.gameOverContent .vertic {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-left: -60px;
+  padding-top: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
