@@ -116,3 +116,11 @@ strong {
   z-index: 2;
   display: block;
 }
+
+#lives {
+  color: tomato;
+}
+
+#mainScore {
+  color: #18ffff;
+}

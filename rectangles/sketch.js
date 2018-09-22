@@ -10,6 +10,7 @@ var gameOver = false;
 function setup() {
   var canvas = createCanvas(850, 550);
   canvas.parent("sketchContainer");
+  updateScoreAndLives();
   frameRate(60);
 }
 //p5 draw
@@ -24,7 +25,7 @@ function draw() {
     currentBlock.draw();
     currentBlock.move(mouseX, mouseY);
   }
-  if (lives === 0) {
+  if (lives < 0) {
     gameOver = true;
   }
 }
@@ -53,9 +54,10 @@ function keyPressed() {
     modalIsOpen = false;
     return;
   }
-  if (keyCode == ESCAPE && currentBlock !== undefined) {
+  if (keyCode == ESCAPE && currentBlock !== undefined && lives >= 0) {
     currentBlock = undefined;
     lives--;
+    updateScoreAndLives();
   }
 }
 
@@ -64,11 +66,13 @@ function resetButtonClicked() {
   blocks = [];
   gameOver = false;
   score = 0;
+  lives = 3;
   intersects = 0;
+  updateScoreAndLives();
 }
 
 function showGameOver() {
-  document.getElementById("score").innerHTML = score - 1;
+  document.getElementById("score").innerHTML = score;
   document.getElementById("gameOver").classList.add("show");
   modalIsOpen = true;
 }
@@ -83,9 +87,13 @@ function infoButtonClicked() {
 
 function modalOkayClicked(m) {
   document.getElementById(m).classList.remove("show");
-  gameOver = false;
   resetButtonClicked();
   modalIsOpen = false;
+}
+
+function updateScoreAndLives() {
+  document.getElementById("mainScore").innerHTML = score;
+  document.getElementById("lives").innerHTML = lives;
 }
 
 //helper functions

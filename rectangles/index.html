@@ -17,12 +17,17 @@
 <body>
   <div class="top">
     <h1>Rectangles</h1>
-
     <button id="resetButton" class="button green" onClick="resetButtonClicked()">Reset</button>
     <button id="infoButton" class="button blue" onClick="infoButtonClicked()">What is this?</button>
   </div>
   <div id="sketchContainer"></div>
 
+  <div class="top">
+    <h2 style="color:white">Score : </h2>
+    <h2><strong id="mainScore">0</strong></h2>
+    <h2 style="color:white;margin-left:auto; margin-right:10px"> Lives : </h2>
+    <h2><strong id="lives">3</strong></h2>
+  </div>
   <div id="help" class="modal">
     <div class="modalContent">
       <h2>Rectangles</h2>
@@ -45,8 +50,8 @@
   </div>
   <div id="gameOver" class="modal">
     <div class="modalContent">
-      <h2 style="color:red">Game over!</h2>
-      <p> Your score : <strong id="score"></strong>
+      <h2>Game over!</h2>
+      <p style="font-size:22px"> Your score : <strong id="score" class="tick"></strong>
       </p>
       <p> Don't let it stop you! </p>
       <button class="button blue primary" onClick="modalOkayClicked('gameOver');">Play Again!</button>

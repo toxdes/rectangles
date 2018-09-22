@@ -34,7 +34,8 @@ class Block {
       });
       this.isPlaced = true;
       res = true;
-      score++;
+      !gameOver && score++;
+      updateScoreAndLives();
       return res;
     };
 
