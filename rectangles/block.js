@@ -1,12 +1,18 @@
 class Block {
-  constructor(x, y, l, b, r, s) {
+  constructor(x, y, w, h, shouldFill, r) {
     this.x = x;
     this.y = y;
-    this.l = l || rand(500);
-    this.b = b || rand(400);
-    this.r = r || rand(10);
+    this.w = w || rand(500);
+    this.h = h || rand(400);
+    this.r = r || 0;
+    this.left = x;
+    this.top = y;
+    this.right = x + w;
+    this.bottom = y + h;
     this.isPlaced = false;
-
+    this.shouldFill = shouldFill;
+    this.area = this.w * this.h;
+    this.r = 0;
     let { red, green, blue } = {
       red: rand(255),
       green: rand(255),
@@ -16,20 +22,34 @@ class Block {
     let wt = 3; //rand((this.l + this.w) % 5);
 
     this.place = () => {
-      this.isPlaced = true;
+      let res = false;
       //checks for any intersections
       blocks.forEach(block => {
-        if (checkIntersection(this, block)) {
+        if (checkIntersection(this, block) && !gameOver) {
           gameOver = true;
+          res = false;
+          totalIntersections++;
+          console.log(`Intersections : ${totalIntersections}`);
         }
       });
+      this.isPlaced = true;
+      res = true;
+      score++;
+      return res;
     };
 
     this.draw = () => {
-      stroke(red, green, blue);
-      strokeWeight(wt);
-      noFill();
-      rect(this.x, this.y, this.l, this.b, this.r);
+      if (this.shouldFill) {
+        fill(red, green, blue);
+        strokeWeight(wt);
+        stroke(255, 0, 0);
+        rect(this.x, this.y, this.w, this.h, this.r);
+      } else {
+        stroke(red, green, blue);
+        strokeWeight(wt);
+        noFill();
+        rect(this.x, this.y, this.w, this.h, this.r);
+      }
     };
 
     this.move = (newX, newY) => {
