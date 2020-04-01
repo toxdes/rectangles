@@ -1,11 +1,12 @@
-![Logo](./img/favicon.png)
-# Rectangles | Play
+[![button](./play_game.png)](https://toxdes.github.io/rectangles/)
+
+# Rectangles
 
 A 2D Game created with [p5.js](https://p5js.org/).
 
-Do you want to play?
+![preview](./one.png)
 
-[Here](https://toxdes.github.io/rectangles)
+
 
 # Rules of the game
 
