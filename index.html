@@ -23,20 +23,14 @@
     <div class="modalContent">
       <h2>Rectangles</h2>
       <div class="exactContent">
-        <p><strong class="tick">✔</strong> Alright, listen up! </p>
-        <p><strong class="tick">✔</strong> This is a game, and to play it, you just click on the play area to get a
-          rectangle of
-          random size. You place
-          it in such a way that it doesn't cross another rectangle's length / width. </p>
-        <p><strong class="tick">✔</strong> If the rectangle crosses another rectangle, <strong>Game Over!</strong></p>
-        <p><strong class="tick">✔</strong> You get a point for every rectangle you place.</p>
+        <p><strong class="tick">✔</strong> This is a simple luck-based game, and to play it, you just click on the play area to spawn a
+          rectangle of random size. Your task is to place it in such a way that it doesn't cross any of the already placed rectangles' border. </p>
+        <p><strong class="tick">✔</strong> If the rectangle crosses another rectangle's border, <strong>Game Over!</strong></p>
+        <p><strong class="tick">✔</strong> You get a point for every rectangle you successfully place.</p>
         <p><strong class="tick">✔</strong> Don't worry, you get 3 lives every time you start a new game. So, if you
-          think you can't
-          fit the rectangle,
-          just press
-          <strong>Esc </strong> on your keyboard. </p>
+            think you can't fit the rectangle, just press <strong>Right-Click</strong> or <strong>ESC</strong> on your keyboard. </p>
       </div>
-      <button class="button blue primary" onClick="modalOkayClicked('help');">Okay!</button>
+      <button class="button blue primary" onClick="modalOkayClicked('help');">Okay</button>
     </div>
   </div>
   <div id="gameOver" class="modal">
@@ -60,48 +54,11 @@
     <button id="infoButton" class="button blue" onClick="infoButtonClicked()">What is this?</button>
   </div>
   <div id="sketchContainer"></div>
-
-
   <div class="top">
-    <h2 style="color:white">Score : </h2>
+    <h2 style="color:white">Score: </h2>
     <h2><strong id="mainScore">0</strong></h2>
-    <h2 style="color:white;margin-left:auto; margin-right:10px"> Lives : </h2>
+    <h2 style="color:white;margin-left:auto; margin-right:10px">Lives: </h2>
     <h2><strong id="lives">3</strong></h2>
   </div>
-  <div class="left">
-    <h2>Coming Soon</h2>
-    <div class="leftContent">
-      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> No animations yet.
-      </p>
-      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> Better looking
-        scores and lives,
-        maybe
-        add images, or
-        inside canvas. Add dark
-        overlay for background whenever modal opens. </p>
-      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> Firebase to store
-        scores and
-        creating
-        accounts for
-        players</p>
-      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> Store the scores,
-        and have a
-        leaderboard</p>
-      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong>Haven't checked all
-        the edge cases
-        yet,
-        so god fucking
-        damnit.</p>
-      <p><strong class="green" style="border:none; margin-right:0.7em; margin-top:10px;">◆</strong> Pointer events,
-        need
-        to figure out
-        how
-        the fuck do I get
-        this to work on
-        phone.
-        Most difficult part, makes sense to run away from this as far as I can. </p>
-
-    </div>
 </body>
-
 </html>

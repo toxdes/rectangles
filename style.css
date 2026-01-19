@@ -81,9 +81,9 @@ strong {
   z-index: 2;
   position: absolute;
   top: 120px;
-
   width: 720px;
-  height: 480px;
+  max-height: 580px;
+  padding:40px;
   background-color: #f4f4f5;
   display: none;
 }
@@ -93,7 +93,7 @@ strong {
   flex-direction: column;
   height: 100%;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .modalContent h2 {
@@ -105,7 +105,6 @@ strong {
 .exactContent {
   padding: 1em 4em 1em 4em;
   overflow: hidden scroll;
-  max-height: 250px;
 }
 .exactContent p {
   line-height: 40px;

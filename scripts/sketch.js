@@ -10,6 +10,7 @@ var gameOver = false;
 function setup() {
   var canvas = createCanvas(850, 550);
   canvas.parent("sketchContainer");
+  canvas.elt.oncontextmenu = () => false;
   updateScoreAndLives();
   frameRate(60);
 }
@@ -32,20 +33,24 @@ function draw() {
 
 //event functions
 function mousePressed() {
-  if (
-    mouseX > 0 &&
-    mouseX < width &&
-    mouseY > 0 &&
-    mouseY < height &&
-    lives >= 0 &&
-    !modalIsOpen
-  ) {
-    if (!currentBlock) {
-      currentBlock = new Block(mouseX, mouseY);
-    } else {
-      currentBlock.place() && blocks.push(currentBlock);
-      currentBlock = undefined;
+  if(mouseButton == LEFT){
+    if (
+      mouseX > 0 &&
+        mouseX < width &&
+        mouseY > 0 &&
+        mouseY < height &&
+        lives >= 0 &&
+        !modalIsOpen
+    ) {
+      if (!currentBlock) {
+        currentBlock = new Block(mouseX, mouseY);
+      } else {
+        currentBlock.place() && blocks.push(currentBlock);
+        currentBlock = undefined;
+      }
     }
+  }else if(mouseButton == RIGHT){
+    resetBlock();
   }
 }
 
@@ -55,10 +60,14 @@ function keyPressed() {
     return;
   }
   if (keyCode == ESCAPE && currentBlock !== undefined && lives >= 0) {
-    currentBlock = undefined;
-    lives--;
-    updateScoreAndLives();
+    resetBlock();
   }
+}
+
+function resetBlock(){
+  currentBlock = undefined;
+  lives--;
+  updateScoreAndLives();
 }
 
 //functions for dom
@@ -106,9 +115,9 @@ function checkIntersection(r1, r2) {
   console.log(`checking instersetions`);
   let intersects = !(
     r2.left > r1.right ||
-    r2.right < r1.left ||
-    r2.top > r1.bottom ||
-    r2.bottom < r1.top
+      r2.right < r1.left ||
+      r2.top > r1.bottom ||
+      r2.bottom < r1.top
   );
   if (!intersects) {
     console.log(intersects);
